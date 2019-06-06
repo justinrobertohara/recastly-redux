@@ -5,6 +5,8 @@ var videoListReducer = (state = [], action) => {
 
   if (action.type === 'CHANGE_VIDEO_LIST') {
     return (state = action.videos);
+  } else {
+    return state;
   }
 };
 
