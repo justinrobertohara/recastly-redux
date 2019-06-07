@@ -2,14 +2,21 @@ import { combineReducers } from 'redux';
 import currentVideo from './currentVideo.js';
 import videoList from './videoList.js';
 
-var rootReducer = (state = {}, action) => {
-  return combineReducers({ currentVideo, videoList });
-  //function todoApp(state = {}, action) {
-  // return {
-  //   visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-  //   todos: todos(state.todos, action)
-  // }
-};
+
+var rootReducer = combineReducers({
+  currentVideo,
+  videoList
+});
+
+//redux docs
+// import { combineReducers } from 'redux';
+// import { items, itemsHasErrored, itemsIsLoading } from './items';
+
+// export default combineReducers({
+//     items,
+//     itemsHasErrored,
+//     itemsIsLoading
+// });
 
 //TODO: define the root reducer for this app
 
