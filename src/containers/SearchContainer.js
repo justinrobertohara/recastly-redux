@@ -1,8 +1,48 @@
 import { connect } from 'react-redux';
 import Search from './../components/Search.js';
 import handleSearchChange from '../actions/search.js';
+import handleVideoSearch from '../actions/search.js';
 
-var SearchContainer = () => {};
+const mapStateToProps = state => {
+  return {
+    value: handleVideoSearch(state.value)
+  };
+};
+
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   return {
+//     onChange: () => {
+//       handleSearchChange(ownProps.value);
+//     }
+//   };
+// };
+
+var SearchContainer = connect(mapStateToProps)(Search);
+
+// import { connect } from 'react-redux'
+// import { setVisibilityFilter } from '../actions'
+// import Link from '../components/Link'
+
+// const mapStateToProps = (state, ownProps) => {
+//   return {
+//     active: ownProps.filter === state.visibilityFilter
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   return {
+//     onClick: () => {
+//       dispatch(setVisibilityFilter(ownProps.filter))
+//     }
+//   }
+// }
+
+// const FilterLink = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Link)
+
+// export default FilterLink
 
 //TODO: define a SearchContainer component which will hook up your action
 // dispatchers with your search component props.
