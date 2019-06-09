@@ -5,10 +5,15 @@ import handleVideoSearch from '../actions/search.js';
 
 const mapStateToProps = state => {
   return {
-    value: handleVideoSearch(state.value)
+    value: state.value
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    handleSearchInputChange: value => dispatch(handleSearchChange(value))
+  };
+};
 // const mapDispatchToProps = (dispatch, ownProps) => {
 //   return {
 //     onChange: () => {
@@ -17,7 +22,10 @@ const mapStateToProps = state => {
 //   };
 // };
 
-var SearchContainer = connect(mapStateToProps)(Search);
+var SearchContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);
 
 // import { connect } from 'react-redux'
 // import { setVisibilityFilter } from '../actions'
